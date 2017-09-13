@@ -1,11 +1,19 @@
 const timer = setInterval(frame, 10);
 let distance = 0;
 
+console.log(window.innerWidth);
 function frame() {
-  const itemRelative = document.querySelector('.item-relative');
+  const element = document.querySelector('.item-relative');
   distance += 2;
-  itemRelative.style.left = distance + 'px';
-  if (distance >= 300) {
-    clearInterval(timer);
-  }
+  if (window.innerWidth > 768) {
+    element.style.left = distance + 'px';
+    if (distance >= 300) {
+      clearInterval(timer);
+    }
+    } else {
+      element.style.top = distance + 'px';
+      if (distance >= 200) {
+        clearInterval(timer);
+      }
+    }
 }
